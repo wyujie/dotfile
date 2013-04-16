@@ -25,6 +25,7 @@
  NeoBundle 'scrooloose/nerdtree'
  NeoBundle 'tomtom/tcomment_vim'
  NeoBundle 'vim-scripts/grep.vim'
+ NeoBundle 'msanders/snipmate.vim'
 
  " vim-scripts repos
  NeoBundle 'L9'
@@ -32,6 +33,7 @@
  NeoBundle 'rails.vim'
  " Non github repos
  NeoBundle 'git://git.wincent.com/command-t.git'
+ NeoBundle 'git://github.com/vim-scripts/taglist.vim.git'
  " Non git repos
  NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
  NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
@@ -53,3 +55,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set lcs=tab:>-,eol:<,nbsp:%
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Ctags_Cmd = '/usr/bin/ctags-exuberant'
