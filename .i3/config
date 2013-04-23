@@ -150,5 +150,8 @@ exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 exec xrandr --output VGA1 --auto --right-of LVDS1 # set multiple screen
 exec_always nautilus --no-default-window #show desktop
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume  exec amixer -q set Master 5%- unmute
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+#bindsym XF86AudioLowerVolume  exec amixer -q set Master 5%- unmute
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
