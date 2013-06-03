@@ -26,6 +26,8 @@
  NeoBundle 'tomtom/tcomment_vim'
  NeoBundle 'vim-scripts/grep.vim'
  NeoBundle 'msanders/snipmate.vim'
+ NeoBundle 'davidhalter/jedi-vim'
+ NeoBundle 'Shougo/neocomplcache.vim'
 
  " vim-scripts repos
  NeoBundle 'L9'
@@ -59,3 +61,4 @@ map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Ctags_Cmd = '/usr/bin/ctags-exuberant'
+let g:neocomplcache_enable_at_startup = 1
