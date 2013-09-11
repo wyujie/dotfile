@@ -67,7 +67,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 %ret!4
-colorscheme delek
+colorscheme desert
 
 " vbundle config
 set rtp+=~/.vim/bundle/vundle/
