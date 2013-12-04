@@ -1,6 +1,6 @@
 set encoding=utf-8
 set langmenu=zh_CN.UTF-8
-language message zh_CN.UTF-8
+"language message zh_CN.UTF-8
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=ucs-bom,utf-8,latin1
 endif
@@ -70,7 +70,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 %ret!4
-colorscheme desert
+colorscheme delek
 
 " vbundle config
 set rtp+=~/.vim/bundle/vundle/
@@ -86,3 +86,44 @@ Bundle 'andviro/flake8-vim'
 let g:PyFlakeOnWrite = 1
 let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
 let g:PyFlakeRangeCommand = 'Q'
+
+Bundle 'Lokaltog/vim-powerline'
+let g:Powerline_symbols = 'fancy'
+
+Bundle 'Lokaltog/vim-powerline'
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+
+"Python 注释
+function InsertPythonComment()
+    exe 'normal'.1.'G'
+    let line = getline('.')
+    if line =~ '^#!.*$' || line =~ '^#.*coding:.*$'
+        return
+    endif
+    call setline('.', '#!/usr/bin python')
+    normal o
+    call setline('.', '# -*- coding:utf-8 -*-')
+    normal o
+    call setline('.', '#')
+    normal o
+    call setline('.', '#   Author  :   '.g:python_author)
+    normal o
+    call setline('.', '#   E-mail  :   '.g:python_email)
+    normal o
+    call setline('.', '#   Date    :   '.strftime("%y/%m/%d %H:%M:%S"))
+    normal o
+    call setline('.', '#')
+    normal o
+    call cursor(9, 17)
+endfunction
+function InsertCommentWhenOpen()
+    if a:lastline == 1 && !getline('.')
+        call InsertPythonComment()
+    end
+endfunc
+au FileType python :%call InsertCommentWhenOpen()
+au FileType python map <F4> :call InsertPythonComment()<cr>
+
+let g:python_author = 'yujie'            
+let g:python_email  = 'yujiewu.cn@gmail.com' 
